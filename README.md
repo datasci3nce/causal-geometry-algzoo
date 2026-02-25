@@ -10,12 +10,20 @@ We apply a novel **Topological Circuit Audit (TCA)** framework to the 432-parame
 
 ## 🔬 Core Discoveries & The 5-Phase Pipeline
 
-### Phase 1 & 4: The Distributed Substrate & The Logic Ring
-Causal ablation reveals that the network relies on a distributed substrate of 13 out of 16 neurons. PCA and Topological Data Analysis (TDA) reveal that these hidden states collapse onto a continuous 1D manifold (a ring) that semantically tracks the `current_max` of the sequence ($\rho = 0.86$).
+### Phase 0 & 1: Attentional Focus & Distributed Substrate
+Gradient analysis reveals the model focuses strictly on the top two values (and the gap between them). Causal ablation shows that 13 of 16 neurons are load-bearing, confirming a distributed representation.
+
+<p align="center">
+  <img src="images/phase0_gradient_profile.png" width="45%" />
+  <img src="images/phase1_causal_ablation.png" width="45%" />
+</p>
+
+### Phase 4: The Logic Ring
+PCA and Topological Data Analysis (TDA) reveal that these hidden states collapse onto a continuous 1D manifold (a ring) that semantically tracks the `current_max` of the sequence ($\rho = 0.86$). The persistence diagram (right) confirms this topology ($H_1$) is robust above the noise floor.
 
 <p align="center">
   <img src="images/phase4_logic_ring.png" width="45%" />
-  <img src="images/phase1_causal_ablation.png" width="45%" />
+  <img src="images/figure_4_1_persistence.png" width="45%" />
 </p>
 
 ### Phase 2: Difficulty Scale-Space (The Temporal Struggle)
@@ -36,7 +44,8 @@ Because computation relies on distance along the Logic Ring, it is subject to a 
 Grounded in Pearl's interventional framework, we subjected the manifold to a controlled Pinch Test. An "Orthogonal Pinch" off the manifold collapses accuracy to 41.2%, while a random Out-Of-Distribution (OOD) control vector only degrades it to 51.8%—isolating a 10.6% causal Logic Gap.
 
 <p align="center">
-  <img src="images/phase5_controlled_pinch.png" width="60%" />
+  <!-- CORRECTED FILENAME BELOW -->
+  <img src="images/phase5_calibrated.png" width="60%" />
 </p>
 
 ### Comparative Analysis: Manifold vs. Discrete Logic
